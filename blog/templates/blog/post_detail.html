@@ -9,7 +9,7 @@
 			      {% else %}
 			      <a class="mr-2" href="#">{{ object.author }}</a>
 			      {% endif %}
-			      <small class="text-muted">{{ object.date_objected|date:'h:i a,F d' }}</small>
+			      <small class="text-muted">{{ object.date_posted|date:'h:i a,F d' }}</small>
 			    </div>
 			    <h2 class="article-title" >{{ object.title }}</h2>
 			    <p class="article-content">{{ object.content }}</p>
