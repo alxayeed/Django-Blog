@@ -19,6 +19,7 @@ class PostListView(ListView):
 	template_name = 'blog/home.html' #overriding default template name to search
 	context_object_name = 'posts' #context with model objects
 	ordering = ['-date_posted'] #ordering newest ot oldest
+	paginate_by = 5 #5 post per page
 
 class PostDetailsView(DetailView):
 	model = Post 
