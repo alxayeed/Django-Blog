@@ -5,14 +5,18 @@
 			  <div class="media-body">
 			    <div class="article-metadata">
 			      {% if object.author.first_name and object.author.last_name%}
-			      <a class="mr-2" href="#">{{ object.author.first_name }} {{object.author.last_name }}</a>
+			      <a class="mr-2" href="#">{{ object.author.first_name }} {{object.author.last_name }}<br></a>
 			      {% else %}
-			      <a class="mr-2" href="#">{{ object.author }}</a>
+			      <a class="mr-2" href="#">{{ object.author }}</a><br>
 			      {% endif %}
-			      <small class="text-muted">{{ object.date_posted|date:'h:i a,F d' }}</small>
+			      <small class="text-muted">{{ object.date_posted|date:'h:i A,F d' }}</small>
 			    </div>
-			    <h2 class="article-title" >{{ object.title }}</h2>
+			    <h5 class="article-title" >{{ object.title }}</h5>
 			    <p class="article-content">{{ object.content }}</p>
+			      {% if object.author == user %}
+			      <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.pk %}">Update</a>
+			      <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.pk %}">Delete</a>
+			      {% endif %}
 			  </div>
 			</article>
  	{% endblock %}
